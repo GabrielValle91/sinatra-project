@@ -1,0 +1,15 @@
+<form action="/products" method="post">
+  <label>Select a client this product belongs to</label>
+  <select name="client_id">
+    <% @current_user.clients.each do |client| %>
+      <option value="<%= client.id %>"><%= client.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label>Product Name: </label>
+  <input type="text" name="product_name">
+  <label>Product Description: </label>
+  <input type="text" name="product_description">
+  <br>
+  <input type="submit" value="Create Item">
+</form>

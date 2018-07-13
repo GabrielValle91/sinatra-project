@@ -14,13 +14,16 @@
   <% end %>
 </select>
 <br>
+<br>
 <table>
   <tr>
     <th>product name</th>
     <th>quantity</th>
   </tr>
   <% @client.products.each do |product| %>
-    <rd><%= product.name %></rd>
-    <rd><%= product.quantity %></rd>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.quantity %></td>
+    </tr>
   <% end %>
 </table>

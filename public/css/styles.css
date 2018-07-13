@@ -7,9 +7,19 @@
   position: relative;
   top: 5px;
 }
+
+table{
+  border-collapse: collapse;
+}
+
+table, th, td{
+  border: 1px solid black;
+}
+
 ul{
   margin-top: 0;
 }
+
 ul li{
   list-style-type: none;
   padding: 0;
