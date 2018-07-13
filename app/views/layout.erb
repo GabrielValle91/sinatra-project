@@ -5,19 +5,20 @@
     <title>Title</title>
   </head>
   <body>
-    <div id="header"></div>
+    <div id="header">
       <span class="name">User:</span>
       <% if logged_in? %>
         current_user
       <% else %>
         <span>not logged in</span>
       <% end %>
-      <span class="name">Customer:</span>
+      <span id="spacer">.</span><span class="name">Customer:</span>
       <% if logged_in? %>
 
       <% else %>
         <span>none</span>
       <% end %>
+    </div>
     <div id="border"></div>
     <div id="content">
       <%= yield %>

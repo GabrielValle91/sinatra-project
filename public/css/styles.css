@@ -5,8 +5,19 @@
   background-color: #fff;
   background-image: url(/images/MainMenu.gif);
   position: relative;
-  top: 30px;
+  top: 5px;
 }
 #content{
   margin-top: 25px;
+}
+#header{
+  font-size: 9pt;
+  margin-top: 50px;
+  margin-right: 10px;
+  text-align: right;
+}
+#spacer{
+  visibility: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
 }
