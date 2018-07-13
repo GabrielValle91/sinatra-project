@@ -1,10 +1,26 @@
 <h3><%= @client.name %></h3>
+<label>Shipping Transactions: </label><%= Transaction.all.count("transaction_type" == "shipping" && "client_id" == @client.id) %>
+<select>
+  <% Transaction.all.where("transaction_type" == "shipping" && "client_id" == @client.id) do |transaction| %>
+    <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
+  <% end %>
+</select>
+<br>
+<br>
+<label>Receiving Transactions: </label><%= Transaction.all.count("transaction_type" == "receiving" && "client_id" == @client.id) %>
+<select>
+  <% Transaction.all.where("transaction_type" == "receiving" && "client_id" == @client.id) do |transaction| %>
+    <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
+  <% end %>
+</select>
+<br>
 <table>
   <tr>
     <th>product name</th>
     <th>quantity</th>
   </tr>
   <% @client.products.each do |product| %>
-    <li>product.name</li>
+    <rd><%= product.name %></rd>
+    <rd><%= product.quantity %></rd>
   <% end %>
 </table>
