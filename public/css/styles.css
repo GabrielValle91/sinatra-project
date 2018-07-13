@@ -7,8 +7,26 @@
   position: relative;
   top: 5px;
 }
+ul{
+  margin-top: 0;
+}
+ul li{
+  list-style-type: none;
+  padding: 0;
+  display: inline;
+  position: relative;
+  text-indent: 0;
+
+}
+.border_items{
+  font-weight: bold;
+  text-indent: 0;
+  line-height: 25px;
+  color: white;
+  margin: 0 5px;
+}
 #content{
-  margin-top: 25px;
+  margin-top: 20px;
 }
 #header{
   font-size: 9pt;
