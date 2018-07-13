@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="header"></div>
+      <span class="name">User:</span>
+      <% if logged_in? %>
+
+      <% else %>
+        <span>not logged in</span>
+      <% end %>
+      <span class="name">Customer:</span>
+      <% if logged_in? %>
+
+      <% else %>
+        <span>none</span>
+      <% end %>
+    <div id="border"></div>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

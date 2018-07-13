@@ -1,0 +1,12 @@
+#border{
+  width: 100%;
+  height: 25px;
+  color: #173671;
+  background-color: #fff;
+  background-image: url(/images/MainMenu.gif);
+  position: relative;
+  top: 30px;
+}
+#content{
+  margin-top: 25px;
+}
