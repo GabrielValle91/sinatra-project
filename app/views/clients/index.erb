@@ -1,0 +1,6 @@
+<h3>Client List:</h3>
+<ol>
+  <% @current_user.clients.each do |client| %>
+    <li><a href="/clients/<%= client.id %>"><%= client.name %></a></li>
+  <% end %>
+</ol>
