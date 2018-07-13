@@ -10,47 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712184828) do
-
-  create_table "clients", force: :cascade do |t|
-    t.string "name"
-    t.integer "office_id"
-  end
-
-  create_table "clientusers", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.integer "client_id"
-  end
-
-  create_table "companyusers", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.integer "office_id"
-  end
-
-  create_table "line_items", force: :cascade do |t|
-    t.integer "transaction_id"
-    t.integer "product_id"
-    t.integer "quantity"
-  end
-
-  create_table "offices", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.integer "quantity"
-    t.integer "client_id"
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.string "reference"
-    t.string "transaction_type"
-    t.integer "client_id"
-    t.date "transaction_date"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end

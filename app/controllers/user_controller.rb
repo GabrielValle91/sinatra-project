@@ -1,4 +1,4 @@
-class ClientUserController < ApplicationController
+class UserController < ApplicationController
 
   get '/login' do
     if logged_in?

@@ -2,8 +2,7 @@ require './config/environment'
 
 use Rack::MethodOverride
 use ClientController
-use ClientUserController
-use CompanyUserController
+use UserController
 use ProductController
 use TransactionController
 run ApplicationController
