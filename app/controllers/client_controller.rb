@@ -20,7 +20,10 @@ class ClientController < ApplicationController
     client = Client.new
     client.name = params[:client_name]
     client.user_id = current_user.id
-    if client.save
+    if Client.where('name = ? AND user_id = ?', params[:client_name], current_user.id)
+      flash[:notice] = "There is already a client with that name"
+      erb :"clients/new"
+    elsif client.save
       redirect '/clients'
     else
       redirect '/clients/new'
