@@ -1,3 +1,3 @@
-class TransactionController < Sinatra::Base
+class TransactionController < ApplicationController
 
 end

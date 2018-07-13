@@ -1,3 +1,3 @@
-class ClientController < Sinatra::Base
+class ClientController < ApplicationController
 
 end

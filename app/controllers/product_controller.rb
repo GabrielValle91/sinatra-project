@@ -1,3 +1,3 @@
-class ProductController < Sinatra::Base
+class ProductController < ApplicationController
 
 end

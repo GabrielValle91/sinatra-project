@@ -1,3 +1,3 @@
-class CompanyUserController < Sinatra::Base
+class CompanyUserController < ApplicationController
 
 end
