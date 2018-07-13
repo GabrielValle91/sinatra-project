@@ -1,0 +1,11 @@
+<a href="/new">Create new shipping transaction</a>
+<br>
+<br>
+<div>
+  <label>View an open shipment</label>
+  <select>
+    <% @current_user.transactions.each do |transaction| %>
+      <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
+    <% end %>
+  </select>
+</div>
