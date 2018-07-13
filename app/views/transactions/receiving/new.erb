@@ -1,0 +1,6 @@
+<label>Select a clients for this shipment</label>
+<select>
+  <% @current_user.clients.each do |client| %>
+    <option value="<%= client.name %>"><%= client.name %></option>
+  <% end %>
+</select>

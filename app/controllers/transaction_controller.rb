@@ -8,4 +8,13 @@ class TransactionController < ApplicationController
       redirect '/login'
     end
   end
+
+  get '/transactions/shipping/new' do
+    if logged_in?
+
+      erb :"transactions/shipping/new"
+    else
+      redirect "/login"
+    end
+  end
 end
