@@ -8,13 +8,13 @@
     <div id="header">
       <span class="name">User:</span>
       <% if logged_in? %>
-        current_user
+        <%= current_user.username %>
       <% else %>
         <span>not logged in</span>
       <% end %>
       <span id="spacer">.</span><span class="name">Customer:</span>
-      <% if logged_in? %>
-
+      <% if logged_in? && !!current_client %>
+        <%= current_client.name %>
       <% else %>
         <span>none</span>
       <% end %>

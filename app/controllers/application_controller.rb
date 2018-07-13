@@ -35,5 +35,9 @@ class ApplicationController < Sinatra::Base
     def logout!
       session.clear
     end
+
+    def current_client
+      @current_client ||= Client.find_by(:name => session[:client]) if session[:client]
+    end
   end
 end
