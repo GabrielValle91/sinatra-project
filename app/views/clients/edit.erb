@@ -1,0 +1,7 @@
+<form action="/clients/<%= @client.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label>Client Name:</label>
+  <input type="text" name="client_name" value="<%= @client.name %>">
+  <br>
+  <input type="submit" value="Save Changes">
+</form>

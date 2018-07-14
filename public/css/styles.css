@@ -52,10 +52,6 @@ ul{
   color: white;
 }
 
-#border a:active{
-  background-color: grey;
-}
-
 #content{
   margin-top: 20px;
 }
