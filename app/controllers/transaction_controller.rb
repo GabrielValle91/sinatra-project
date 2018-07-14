@@ -2,8 +2,6 @@ class TransactionController < ApplicationController
 
   get '/transactions/shipping' do
     if logged_in?
-      @current_user
-      @transactions = @current_user.transactions.where('type = shipping AND status = open')
       erb :"transactions/shipping/index"
     else
       redirect '/login'

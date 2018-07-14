@@ -1,12 +1,15 @@
 <a href="/transactions/shipping/new">Create new shipping transaction</a>
 <br>
 <br>
-<div>
-  <label>View an open shipment</label>
-  <select selected ="">
-    <option></option>
-    <% @current_user.transactions.each do |transaction| %>
-      <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
-    <% end %>
-  </select>
-</div>
+<label>View an open shipment</label>
+<ul>
+  <% @current_user.clients.each do |client| %>
+    <li><%= client.name %>
+      <ul>
+        <% client.transactions.each do |transaction| %>
+          <li><a href="/transcations/<%= transaction.id %>/edit"><%= transaction.reference %></a></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

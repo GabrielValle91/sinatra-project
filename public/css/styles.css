@@ -15,6 +15,7 @@ table{
 table, th, td{
   border: 1px solid black;
 }
+
 a:visited{
   color: #0055f2;
 }
@@ -41,7 +42,7 @@ ul{
 }
 
 #border a{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #border a:link{
