@@ -1,0 +1,15 @@
+<a href="/transactions/shipping/new">Create new receiving transaction</a>
+<br>
+<br>
+<label>View an open shipment</label>
+<ul>
+  <% @current_user.clients.each do |client| %>
+    <li><%= client.name %>
+      <ul>
+        <% client.transactions.each do |transaction| %>
+          <li><a href="/transactions/receiving/<%= transaction.id %>"><%= transaction.reference %></a></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
