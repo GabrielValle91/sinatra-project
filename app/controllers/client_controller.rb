@@ -35,6 +35,8 @@ class ClientController < ApplicationController
     if logged_in?
       @client = Client.find(params[:id])
       if @client.user_id == current_user.id
+        @shipping_transactions = Transaction.where('transaction_type = ? AND client_id = ?', "shipping", @client.id)
+        @receiving_transactions = Transaction.where('transaction_type = ? AND client_id = ?', "receiving",  @client.id)
         erb :"clients/show"
       else
         redirect '/clients'

@@ -2,22 +2,20 @@
 <h3><%= @client.name %></h3>
 <div>
   <section id="shipping-transactions">
-    <label>Shipping Transactions: </label><%= Transaction.all.count("transaction_type" == "shipping" && "client_id" == @client.id) %>
-    <select name="shipping_transaction_id" selected="">
-      <option></option>
-      <% Transaction.all.where("transaction_type" == "shipping" && "client_id" == @client.id) do |transaction| %>
-        <option value="<%= transaction.id %>"><%= transaction.reference %></option>
-      <% end %>
-    </select>
+    <label>Shipping Transactions: </label> <%= @shipping_transactions.size %>
+    <% @shipping_transactions.each do |transaction| %>
+      <ul>
+          <li><a href="/transactions/shipping/<%= transaction.id %>"><%= transaction.reference %></a> - <%= transaction.status %></li>
+      </ul>
+    <% end %>
   </section>
   <section id="receiving-transactions">
-  <label>Receiving Transactions: </label><%= Transaction.all.count("transaction_type" == "receiving" && "client_id" == @client.id) %>
-  <select name="receiving_transaction_id" selected="">
-    <option></option>
-    <% Transaction.all.where('transaction_type = receiving AND client_id = ?', @client.id) do |transaction| %>
-      <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
-    <% end %>
-  </select>
+  <label>Receiving Transactions: </label><%=@receiving_transactions.size %>
+  <% @receiving_transactions.each do |transaction| %>
+    <ul>
+        <li><a href="/transactions/receiving/<%= transaction.id %>"><%= transaction.reference %></a> - <%= transaction.status %></li>
+    </ul>
+  <% end %>
   </section>
   <section id="inventory-table">
   <label>Inventory summary</label>
