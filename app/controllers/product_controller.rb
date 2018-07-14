@@ -15,6 +15,20 @@ class ProductController < ApplicationController
     end
   end
 
+  get '/products/:id' do
+    if logged_in?
+      @product = Product.find(params[:id])
+      #binding.pry
+      if @product.client.user_id = @current_user.id
+        erb :"products/show"
+      else
+        redirect '/products'
+      end
+    else
+      redirect '/login'
+    end
+  end
+
   post '/products' do
     if !Product.where('name = ? AND client_id = ?', params[:product_name], params[:client_id]).empty?
       flash.now[:notice] = "There is already a product for this client with that name"

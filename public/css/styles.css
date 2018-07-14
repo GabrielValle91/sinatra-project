@@ -19,23 +19,41 @@ table, th, td{
 ul{
   margin-top: 0;
 }
-
-ul li{
-  list-style-type: none;
-  padding: 0;
-  display: inline;
-  position: relative;
-  text-indent: 0;
-
+#border{
+  color: white;
 }
-.border_items{
+#border ul{
+  list-style-type: none;
+}
+
+#border ul li{
+  list-style-type: none;
   font-weight: bold;
   text-indent: 0;
   line-height: 25px;
-  color: white;
   margin: 0 5px;
-  text-decoration: none;
+  display: inline;
+  padding: 0;
+  position: relative;
+  text-indent: 0;
 }
+
+#border a{
+    text-decoration: none;
+}
+
+#border a:link{
+  color: white;
+}
+
+#border a:visited{
+  color: white;
+}
+
+#border a:active{
+  background-color: grey;
+}
+
 #content{
   margin-top: 20px;
 }

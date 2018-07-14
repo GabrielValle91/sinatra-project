@@ -1,0 +1,14 @@
+<a href="products/new">Create a new product</a>
+<br>
+<br>
+<ul class="style">
+  <% @current_user.clients.each do |client| %>
+    <li><%= client.name %>
+      <ul>
+      <% client.products.each do |product| %>
+        <li><a href="products/<%= product.id %>"><%= product.name %></a></li>
+      <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
