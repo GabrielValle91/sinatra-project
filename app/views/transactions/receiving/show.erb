@@ -5,7 +5,11 @@ Transaction Reference: <%= @transaction.reference %></h5>
 <div>
 Client: <%= @transaction.client.name %>
 <br>
+<br>
 Products on this transaction:<br>
+<br>
+<label>Name - Quantity</label>
+<br>
 <% @transaction.products.each do |product| %>
   <%= product.name %> - <%= LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.id).quantity if LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.id) %><br>
 <% end %>
