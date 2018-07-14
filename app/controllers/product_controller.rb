@@ -18,7 +18,7 @@ class ProductController < ApplicationController
   get '/products/:id/edit' do
     if logged_in?
       @product = Product.find(params[:id])
-      if @product.client.user_id = @current_user.id
+      if @product.client.user_id == @current_user.id
         erb :"products/edit"
       else
         redirect '/products'
@@ -31,7 +31,7 @@ class ProductController < ApplicationController
   get '/products/:id' do
     if logged_in?
       @product = Product.find(params[:id])
-      if @product.client.user_id = @current_user.id
+      if @product.client.user_id == @current_user.id
         erb :"products/show"
       else
         redirect '/products'

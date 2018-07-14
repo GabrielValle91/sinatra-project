@@ -9,14 +9,9 @@
       <span class="name">User:</span>
       <% if logged_in? %>
         <%= current_user.username %>
+        <a href="/logout">logout</a>
       <% else %>
         <span>not logged in</span>
-      <% end %>
-      <span id="spacer">.</span><span class="name">Customer:</span>
-      <% if logged_in? && !!current_client %>
-        <%= current_client.name %>
-      <% else %>
-        <span>none</span>
       <% end %>
     </div>
     <div id="border">

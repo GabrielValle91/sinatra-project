@@ -15,7 +15,9 @@ table{
 table, th, td{
   border: 1px solid black;
 }
-
+a:visited{
+  color: #0055f2;
+}
 ul{
   margin-top: 0;
 }

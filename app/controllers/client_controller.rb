@@ -4,7 +4,6 @@ class ClientController < ApplicationController
 
   get '/clients' do
     if logged_in?
-
       erb :"clients/index"
     else
       redirect "/login"
@@ -22,7 +21,7 @@ class ClientController < ApplicationController
   get '/clients/:id' do
     if logged_in?
       @client = Client.find(params[:id])
-      if @client.user_id = current_user.id
+      if @client.user_id == current_user.id
         erb :"clients/show"
       else
         redirect '/clients'
