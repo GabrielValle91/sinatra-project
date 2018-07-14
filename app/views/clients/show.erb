@@ -1,32 +1,37 @@
 <a href="/clients/<%= @client.id %>/edit">Edit client</a><br>
 <h3><%= @client.name %></h3>
-<label>Shipping Transactions: </label><%= Transaction.all.count("transaction_type" == "shipping" && "client_id" == @client.id) %>
-<select name="shipping_transaction_id" selected="">
-  <option></option>
-  <% Transaction.all.where("transaction_type" == "shipping" && "client_id" == @client.id) do |transaction| %>
-    <option value="<%= transaction.id %>"><%= transaction.reference %></option>
-  <% end %>
-</select>
-<br>
-<br>
-<label>Receiving Transactions: </label><%= Transaction.all.count("transaction_type" == "receiving" && "client_id" == @client.id) %>
-<select name="receiving_transaction_id" selected="">
-  <option></option>
-  <% Transaction.all.where("transaction_type" == "receiving" && "client_id" == @client.id) do |transaction| %>
-    <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
-  <% end %>
-</select>
-<br>
-<br>
-<table>
-  <tr>
-    <th>product name</th>
-    <th>quantity</th>
-  </tr>
-  <% @client.products.each do |product| %>
+<div>
+  <section id="shipping-transactions">
+    <label>Shipping Transactions: </label><%= Transaction.all.count("transaction_type" == "shipping" && "client_id" == @client.id) %>
+    <select name="shipping_transaction_id" selected="">
+      <option></option>
+      <% Transaction.all.where("transaction_type" == "shipping" && "client_id" == @client.id) do |transaction| %>
+        <option value="<%= transaction.id %>"><%= transaction.reference %></option>
+      <% end %>
+    </select>
+  </section>
+  <section id="receiving-transactions">
+  <label>Receiving Transactions: </label><%= Transaction.all.count("transaction_type" == "receiving" && "client_id" == @client.id) %>
+  <select name="receiving_transaction_id" selected="">
+    <option></option>
+    <% Transaction.all.where('transaction_type = receiving AND client_id = ?', @client.id) do |transaction| %>
+      <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
+    <% end %>
+  </select>
+  </section>
+  <section id="inventory-table">
+  <label>Inventory summary</label>
+  <table>
     <tr>
-      <td><%= product.name %></td>
-      <td><%= product.quantity %></td>
+      <th>product name</th>
+      <th>quantity</th>
     </tr>
-  <% end %>
-</table>
+    <% @client.products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.quantity %></td>
+      </tr>
+    <% end %>
+  </table>
+  </section>
+</div>

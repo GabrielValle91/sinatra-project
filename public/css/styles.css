@@ -7,7 +7,19 @@
   position: relative;
   top: 5px;
 }
-
+#shipping-transactions{
+  float: left;
+  width: 25%;
+}
+#receiving-transactions{
+  float: left;
+  width: 25%;
+}
+#inventory-table{
+  float: left;
+  width: 25%;
+}
+}
 table{
   border-collapse: collapse;
 }
