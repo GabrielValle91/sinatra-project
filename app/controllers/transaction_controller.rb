@@ -140,7 +140,7 @@ class TransactionController < ApplicationController
       transaction.transaction_date = params[:transaction_date]
       transaction.status = "open"
       if transaction.save
-        redirect  '/transactions/receiving'
+        redirect '/transactions/receiving'
       else
         redirect '/transactions/receiving/new'
       end
