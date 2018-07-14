@@ -5,7 +5,8 @@
   <input type="text" name="product_description" value="<%= @product.description %>">
   <br>
   <label>Client: </label>
-  <select name="client_id">
+  <select name="client_id" selected="">
+    <option></option>
     <% @current_user.clients.each do |client| %>
       <option value="<%= client.id %>"><%= client.name %></option>
     <% end %>

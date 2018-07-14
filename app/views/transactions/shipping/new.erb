@@ -1,6 +1,17 @@
-<label>Select a client for this shipment</label>
-<select>
-  <% @current_user.clients.each do |client| %>
-    <option value="<%= client.id %>" name="client_id"><%= client.name %></option>
-  <% end %>
-</select>
+<form action="/transactions" method="post">
+  <label>Select a client for this shipment</label>
+  <select name="client_id" selected="">
+    <option></option>
+    <% @current_user.clients.each do |client| %>
+      <option value="<%= client.id %>"><%= client.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label>Transaction Reference:</label>
+  <input type="text" name="transaction_reference">
+  <br>
+  <label>Transaction Date:</label>
+  <input type="date" name="transaction_date">
+  <br>
+  <input type="submit" value="Create Shipment">
+</form>

@@ -3,7 +3,8 @@
 <br>
 <div>
   <label>View an open shipment</label>
-  <select>
+  <select selected ="">
+    <option></option>
     <% @current_user.transactions.each do |transaction| %>
       <option value="<%= transaction.reference %>"><%= transaction.reference %></option>
     <% end %>
