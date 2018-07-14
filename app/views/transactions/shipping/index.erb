@@ -7,7 +7,7 @@
     <li><%= client.name %>
       <ul>
         <% client.transactions.each do |transaction| %>
-          <li><a href="/transcations/<%= transaction.id %>/edit"><%= transaction.reference %></a></li>
+          <li><a href="/transactions/shipping/<%= transaction.id %>"><%= transaction.reference %></a></li>
         <% end %>
       </ul>
     </li>

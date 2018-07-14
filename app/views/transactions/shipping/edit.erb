@@ -1,0 +1,18 @@
+<form action="/transactions/shipping/<%= @transaction.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <h5>Transaction ID: <%= @transaction.id %>
+  <br>
+  Transaction Refrence: <%= @transaction.reference %></h5>
+  <div>
+  Client: <%= @transaction.client.name %>
+  <br>
+  <br>
+  Products on this transaction:<br>
+  <% @transaction.client.products.each do |product| %>
+    <label><%= product.name %></label>
+    <input type="text" name="products[<%=product.id%>][]" value="<%= LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.id).quantity if LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.id) %>">
+    <br>
+  <% end %>
+  </div>
+  <input type="submit" value="Save Changes">
+</form>
