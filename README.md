@@ -15,9 +15,9 @@
 
 
 
-#Contributing
+## Contributing
   Bug reports and pull requests are welcome on GitHub at https://github.com/GabrielValle91/sinatra-project.
-  This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct found at http://contributor-covenant.org/
+  This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-#Lisence
-  The gem is available as open source under the terms of the MIT License.
+## License
+  The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
