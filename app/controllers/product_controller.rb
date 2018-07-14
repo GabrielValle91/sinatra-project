@@ -15,10 +15,22 @@ class ProductController < ApplicationController
     end
   end
 
+  get '/products/:id/edit' do
+    if logged_in?
+      @product = Product.find(params[:id])
+      if @product.client.user_id = @current_user.id
+        erb :"products/edit"
+      else
+        redirect '/products'
+      end
+    else
+      redirect '/login'
+    end
+  end
+
   get '/products/:id' do
     if logged_in?
       @product = Product.find(params[:id])
-      #binding.pry
       if @product.client.user_id = @current_user.id
         erb :"products/show"
       else
@@ -34,7 +46,6 @@ class ProductController < ApplicationController
       flash.now[:notice] = "There is already a product for this client with that name"
       erb :"products/new"
     else
-      binding.pry
       product = Product.new
       product.name = params[:product_name]
       product.description = params[:product_description]
@@ -45,6 +56,17 @@ class ProductController < ApplicationController
       else
         redirect '/products/new'
       end
+    end
+  end
+
+  patch '/products/:id' do
+    product = Product.find(params[:id])
+    product.description = params[:product_description]
+    product.client_id = params[:client_id]
+    if product.save
+      redirect '/products'
+    else
+      redirect "/products/#{params[:id]/edit}"
     end
   end
 end

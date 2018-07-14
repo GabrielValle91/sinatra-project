@@ -1,0 +1,15 @@
+<form action="/products/<%= @product.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <h4><label>Name: </label><%= @product.name %></h4>
+  <label>Description: </label>
+  <input type="text" name="product_description" value="<%= @product.description %>">
+  <br>
+  <label>Client: </label>
+  <select name="client_id">
+    <% @current_user.clients.each do |client| %>
+      <option value="<%= client.id %>"><%= client.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <input type="submit" value="Save Changes">
+</form>
