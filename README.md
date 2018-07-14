@@ -6,12 +6,12 @@
   Users can see an overview of shipping and receiving transactions, as well as inventory levels on a per client basis.
 
   To use this app:
-    1. click the 'clone of download' button to copy link text
-    2. in your terminal, enter 'git clone (link text)'
-    3. run bundle install
-    4. run rake db:migrate
-    5. run shotgun
-    6. in your browser, navigate to 'localhose:9393/' to begin
+    - click the 'clone of download' button to copy link text
+    - in your terminal, enter 'git clone (link text)'
+    - run bundle install
+    - run rake db:migrate
+    - run shotgun
+    - in your browser, navigate to 'localhose:9393/' to begin
 
 
 
