@@ -1,6 +1,5 @@
 # sinatra-project
 
-##Summary:
   This is a sinatra web application that allows users to create a profile and keep track of client's inventory and transactions in a warehouse environment.
   Users can keep track of multiple clients, each client can have numerous products and transactions to keep track of ins and outs of inventory.
   Users can see an overview of shipping and receiving transactions, as well as inventory levels on a per client basis.
