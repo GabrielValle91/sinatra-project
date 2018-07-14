@@ -64,9 +64,13 @@ class TransactionController < ApplicationController
 
   patch '/transactions/shipping/:id' do
     @transaction = Transaction.find(params[:id])
+    @transaction.status = params[:status]
+    @transaction.save
     params[:products].each do |product, quantity|
+      cur_product = Product.find(product.to_i)
       if quantity.first.to_i > 0
         if lineitem = LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.to_i)
+          cur_product.quantity += lineitem.quantity
           lineitem.quantity = quantity.first.to_i
           lineitem.save
         else
@@ -76,8 +80,13 @@ class TransactionController < ApplicationController
           lineitem.quantity = quantity.first.to_i
           lineitem.save
         end
+        cur_product.quantity -= lineitem.quantity
+        cur_product.save
       elsif quantity.first.to_i == 0 || !quantity.first
         if lineitem = LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.to_i)
+          cur_product = Product.find(product.to_i)
+          cur_product.quantity += lineitem.quantity
+          cur_product.save
           lineitem.delete
         end
       end
@@ -149,9 +158,13 @@ class TransactionController < ApplicationController
 
   patch '/transactions/receiving/:id' do
     @transaction = Transaction.find(params[:id])
+    @transaction.status = params[:status]
+    @transaction.save
     params[:products].each do |product, quantity|
+      cur_product = Product.find(product.to_i)
       if quantity.first.to_i > 0
         if lineitem = LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.to_i)
+          cur_product.quantity -= lineitem.quantity
           lineitem.quantity = quantity.first.to_i
           lineitem.save
         else
@@ -161,8 +174,13 @@ class TransactionController < ApplicationController
           lineitem.quantity = quantity.first.to_i
           lineitem.save
         end
+        cur_product.quantity += lineitem.quantity
+        cur_product.save
       elsif quantity.first.to_i == 0 || !quantity.first
         if lineitem = LineItem.find_by(:transaction_id => @transaction.id, :product_id => product.to_i)
+          cur_product = Product.find(product.to_i)
+          cur_product.quantity -= lineitem.quantity
+          cur_product.save
           lineitem.delete
         end
       end

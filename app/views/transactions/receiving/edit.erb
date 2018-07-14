@@ -14,7 +14,7 @@
     <br>
   <% end %>
   </div>
-  <select name="status" selected="open">
+  <select name="status" selected="<% @transaction.status %>">
     <option>open</option>
     <option>completed</option>
   </select>
