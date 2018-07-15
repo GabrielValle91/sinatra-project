@@ -20,7 +20,7 @@ class TransactionController < ApplicationController
   get '/transactions/shipping/:id/edit' do
     if logged_in?
       @transaction = Transaction.find(params[:id])
-      if @transaction.client.user = current_user
+      if @transaction.client.user == current_user
         erb :"transactions/shipping/edit"
       else
         redirect '/transactions/shipping'
@@ -33,7 +33,7 @@ class TransactionController < ApplicationController
   get '/transactions/shipping/:id' do
     if logged_in?
       @transaction = Transaction.find(params[:id])
-      if @transaction.client.user = current_user
+      if @transaction.client.user == current_user
         erb :"transactions/shipping/show"
       else
         redirect '/transactions/shipping'
@@ -114,7 +114,7 @@ class TransactionController < ApplicationController
   get '/transactions/receiving/:id/edit' do
     if logged_in?
       @transaction = Transaction.find(params[:id])
-      if @transaction.client.user = current_user
+      if @transaction.client.user == current_user
         erb :"transactions/receiving/edit"
       else
         redirect '/transactions/receiving'
@@ -127,7 +127,7 @@ class TransactionController < ApplicationController
   get '/transactions/receiving/:id' do
     if logged_in?
       @transaction = Transaction.find(params[:id])
-      if @transaction.client.user = current_user
+      if @transaction.client.user == current_user
         erb :"transactions/receiving/show"
       else
         redirect '/transactions/receiving'
